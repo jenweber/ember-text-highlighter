@@ -1,18 +1,19 @@
 import Ember from 'ember';
+import layout from '../templates/components/ember-text-highlighter';
 
 export default Ember.Component.extend({
   tagName: 'span',
-  classNames: 'highlight',
+  highlighterClass: 'highlight',
   searchTerm: [],
   text: '',
   highlightedText: Ember.computed('searchTerms', 'text', 'classNames', function() {
     let searchTerm = this.get('searchTerm');
     let text = this.get('text');
-    let classNames = this.get('classNames');
+    let highlighterClass = this.get('highlighterClass');
     if (this.validateInput(searchTerm, text)) {
       let searchTermRegex = new RegExp(searchTerm, 'gi');
       let highlightedText = text.replace(searchTermRegex, function (str) {
-         return '<span class="' + classNames +'">' + str + '</span>';
+         return '<span class="' + highlighterClass +'">' + str + '</span>';
        });
       return new Ember.String.htmlSafe(highlightedText);
     } else {
@@ -45,5 +46,3 @@ export default Ember.Component.extend({
   //   this.get('text-highlighter').destroy();
   // }),
 });
-
-export { default } from 'ember-text-highlighter/components/text-highlighter';

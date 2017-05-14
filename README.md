@@ -1,27 +1,66 @@
-# Ember-text-highlighter
+# Ember-Text-Highlighter
 
-This README outlines the details of collaborating on this Ember addon.
+THIS ADDON IS A WORK IN PROGRESS
+
+Ember Text Highlighter is a simple addon for simple use cases - searching a string
+and inserting a `<span>` around the word you are looking for.
+
+Since it does not rely on JQuery to insert highlighting, it respects all updates
+made to Ember Data records and objects.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-text-highlighter`
-* `npm install`
-* `bower install`
+Coming soon via npm/ember install. For now:
 
-## Running
+Clone this repo, then inside the project, use `npm link`.
+Then navigate to your app's repository, use `npm link ember-text-highlighter`.
+Add an entry by hand to your package.json.
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+## Quick Start
 
-## Running Tests
+In your component template, pass in a searchTerm and text you want to do some highlighting within:
+```
+<div>
+{{ember-text-highlighter searchTerm="mascot" text="Zoey is my favorite mascot"}}
+</div>
+```
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+In your CSS file, add some styling rules of your choice for the class name `.highlighter`.
+This addon does not add any default styling rules.
+```
+.highlighter {
+  background-color: #ffb656;
+  padding: 4px;
+}
+```
 
-## Building
+Result:
+```
+<div>
+Zoey is my favorite <span class="highlighter">mascot</span>
+</div>
+```
 
-* `ember build`
+## Configuration Options and Defaults
 
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+| Attribute Name   | Description   | Options  |  Default  |
+| ------------- |-------------| -----| -----|
+| highlighterClass| The class name to be used in the span  | any string | 'highlighter'|
+| caseSensitive | Whether or not results should be case-sensitive |  boolean (true or false) | false |
+| text  | The text to be searched |  any string | null |
+| searchTerm  | The word that should be highlighted |  any string | null |
+
+Usage:
+```
+{{ember-text-highlighter
+  searchTerm=searchTerm
+  text=text
+  caseSensitive=false
+  highlighterClass="blue-highlighter"}}
+```
+
+## Limitations
+
+This addon works by using a simple Regex replace to search for a given term, then
+returns an a `Ember.String.htmlSafe`. Due to performance concerns,
+it is not recommended to use this addon to search large amounts of text.

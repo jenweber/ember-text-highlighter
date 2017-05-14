@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'text-highlighter'
+  name: 'ember-text-highlighter'
 };
