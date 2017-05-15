@@ -64,3 +64,9 @@ Usage:
 This addon works by using a simple Regex replace to search for a given term, then
 returns an a `Ember.String.htmlSafe`. Due to performance concerns,
 it is not recommended to use this addon to search large amounts of text.
+
+## Credits
+
+This addon was inspired by the technique described by Channa Somathilaka in this [StackOverflow](http://stackoverflow.com/questions/40001210/how-to-highlight-a-given-word-inside-hbs) post.
+
+Special thanks to the Ember Community Slack members for answering my questions. Visit the [Ember Community](https://www.emberjs.com/community/) page to find out how to join us.
