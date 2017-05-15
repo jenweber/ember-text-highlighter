@@ -41,6 +41,8 @@ Zoey is my favorite <span class="highlighter">mascot</span>
 </div>
 ```
 
+![Result](https://cloud.githubusercontent.com/assets/16627268/26039129/ab6d8678-38e4-11e7-8e9d-34b15cc6ab04.png)
+
 ## Configuration Options and Defaults
 
 | Attribute Name   | Description   | Options  |  Default  |
